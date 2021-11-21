@@ -5,6 +5,7 @@
 #include <QMouseEvent>
 #include <QPoint>
 #include <QSizeGrip>
+#include <QPainterPath>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -29,6 +30,7 @@ private slots:
     void restore_maximized();
 
 private:
+    QPainterPath path;
     QSizeGrip *test;
     Ui::MainWindow *ui;
     QPoint mLastMousePosition;

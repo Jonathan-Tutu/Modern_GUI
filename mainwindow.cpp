@@ -15,6 +15,20 @@ MainWindow::MainWindow(QWidget *parent)
     //test->setGeometry(20,20,20,20);
     //ui->verticalLayout_6->addWidget(test);
 
+    //Permet de réellement aroundir les objets au lieu de simplement changer le style
+
+    qreal border_radius = 71;
+
+    path.addRoundedRect(ui->frame_4->rect(), border_radius, border_radius);
+    ui->frame_4->setMask(path.toFillPolygon().toPolygon());
+
+    path.addRoundedRect(ui->frame_2->rect(), border_radius, border_radius);
+    ui->frame_2->setMask(path.toFillPolygon().toPolygon());
+
+    path.addRoundedRect(ui->frame_3->rect(), border_radius, border_radius);
+    ui->frame_3->setMask(path.toFillPolygon().toPolygon());
+
+
     connect(ui->pushButton, SIGNAL(clicked()), this, SLOT(minimized()));
     connect(ui->pushButton_2, SIGNAL(clicked()), this, SLOT(restore_maximized()));
     connect(ui->pushButton_3, &QPushButton::clicked, this, &QApplication::quit);
